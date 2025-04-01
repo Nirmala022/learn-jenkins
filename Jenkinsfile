@@ -58,5 +58,6 @@ pipeline {
         failure{
             echo "this dection run when pipeline failure"
         }
+        
     }
 }
