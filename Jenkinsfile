@@ -4,7 +4,7 @@ pipeline {
     }
     options{
         timeout(time: 10, unit: 'SECONDS')
-        //disableConcurrentBuilds()
+        disableConcurrentBuilds()
         //retry(1)
     }
     parameters {
@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Deploy') {
             when {
-                env.GIT_BRANCH == 'origin/main'
+                 expression { BRANCH_NAME == 'main' }
             }
             steps {
                 sh 'echo this is deploy'
